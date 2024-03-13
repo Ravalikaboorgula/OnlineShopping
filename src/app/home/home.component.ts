@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit{
   ngOnInit() {
   }
 
-  defaultUsername = 'Username Enter ';
+  appTitle: string = "Grocery Systems";
 
   saveStoreDetails(){
     console.log('hello');

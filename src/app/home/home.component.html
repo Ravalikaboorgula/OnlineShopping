@@ -1,19 +1,30 @@
-<div>
-<table>
-    <h1>Register a store here</h1>
-    <tr>
-        Store Name: <input type="text" placeholder="enter store name" ngModel="storeName">
-    </tr><br>
-    <tr>
-        Address: <input type="text" placeholder="enter store address" ngModel="storeAddress">
-    </tr><br>
-    <tr>
-        Phone: <input type="text" placeholder="enter phone number" ngModel="storePhone">
-    </tr><br>
-    <tr>
-        Email: <input type="text" placeholder="enter email address" ngModel="storeEmail">
-    </tr><br><br><br>
-    <button value="Submit" (click)="saveStoreDetails()">Save</button>
 
-</table>
+<div class="container"> 
+<header>
+        <a routerLink="/" class="logo">{{appTitle}}</a>
+        <nav>
+          <ul>
+            <li><a href="home">Store</a></li>
+            <li><a href="nav">Nav</a></li>
+          </ul>
+        </nav>
+</header>
 </div>
+<div>
+        <h1>Register your store here</h1>
+
+        <tr>
+            <label>Store Name: </label><input type="text" placeholder="enter store name" ngModel="storeName" style="margin: 10px 10px;">
+        </tr><br>
+        <tr>
+            <label>Address:</label> <input type="text" placeholder="enter store address" ngModel="storeAddress" style="margin-right: 35px; margin-left: 35px; margin-top: 10px; margin-bottom: 10px;">
+        </tr><br>
+        <tr>
+            <label> Phone:</label> <input type="text" placeholder="enter phone number" ngModel="storePhone" style="margin-right: 90px; margin-left: 45px; margin-top: 10px; margin-bottom: 10px;">
+        </tr><br>
+        <tr>
+            <label> Email:</label> <input type="text" placeholder="enter email address" ngModel="storeEmail"     style="margin: 10px 10px 10px 45px;">
+        </tr><br><br><br>
+        <button value="Submit" (click)="saveStoreDetails()">Save</button>
+    </div>      
+
