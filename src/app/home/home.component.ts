@@ -9,13 +9,20 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit{
-  constructor(){}
-  ngOnInit() {
-  }
 
   appTitle: string = "Grocery Systems";
 
-  saveStoreDetails(){
-    console.log('hello');
+  constructor(){
+
   }
+
+  ngOnInit() {
+  }
+
+  
+  saveStoreDetails(){
+    console.log('hello world')
+  }
+
+  
 }
