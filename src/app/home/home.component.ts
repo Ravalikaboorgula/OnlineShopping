@@ -9,8 +9,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit{
-
-  appTitle: string = "Grocery Systems";
+  
+  appTitle: string = "";
 
   constructor(){
 
@@ -21,6 +21,10 @@ export class HomeComponent implements OnInit{
 
   
   saveStoreDetails(){
+    if(this.appTitle == null || this.appTitle == '' || this.appTitle == undefined){
+      console.log('appTitle cannot be empty');
+      return;
+    }
     console.log('hello world')
   }
 

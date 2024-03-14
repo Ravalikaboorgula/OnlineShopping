@@ -13,29 +13,33 @@
     <h1>Register your store here</h1>
 
 
-        <label>Store Name: </label><input type="text" placeholder="enter store name" ngModel="storeName"
-            style="margin: 10px 10px;">
+        <label>Store Name *: </label><input type="text" placeholder="enter store name" ngModel="storeName"
+            style="margin: 10px 10px;" ng-required="true">
     <br>
     
-        <label> StoreId:</label> <input type="text" placeholder="enter storeId " ngModel="storeId"
-            style="margin: 10px 10px 10px 45px;">
+        <label> StoreId *:</label> <input type="text" placeholder="enter storeId " ngModel="storeId"
+            style="margin: 10px 10px 10px 45px;"> 
    <br>
     
-        <label>Address:</label> <input type="text" placeholder="enter store address" ngModel="storeAddress"
+        <label>Address *:</label> <input type="text" placeholder="enter store address" ngModel="storeAddress"
             style="margin-right: 35px; margin-left: 35px; margin-top: 10px; margin-bottom: 10px;">
     <br>
     
-        <label> Phone:</label> <input type="text" placeholder="enter phone number" ngModel="storePhone"
-            style="margin-right: 90px; margin-left: 45px; margin-top: 10px; margin-bottom: 10px;">
+        <label> Phone *:</label> <input type="text" placeholder="enter phone number" ngModel="storePhone"
+            style="margin-right: 90px;
+            margin-left: 47px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        ">
     <br>
     
         <label> Email:</label> <input type="text" placeholder="enter email address" ngModel="storeEmail"
-            style="margin: 10px 10px 10px 45px;">
+            style="margin: 10px 10px 10px 61px;">
     <br>
 
     
         <label> Zipcode:</label> <input type="text" placeholder="enter zipcode " ngModel="storeZipcode"
-            style="margin: 10px 10px 10px 30px;">
+            style="margin: 10px 10px 10px 45px;">
     <br><br>
     <button (click)="saveStoreDetails()">Save</button>
 </div>
