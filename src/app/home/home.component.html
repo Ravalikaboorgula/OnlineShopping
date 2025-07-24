@@ -9,40 +9,52 @@
         </nav>
     </header>
 </div>
+<br>
 <div>
     <h1>Register your store here</h1>
+    <pre>{{dataSource | json}}</pre>
+    
 
-<form [formGroup]="applyForm" (submit)="saveStoreDetails()">
+<!-- <form [formGroup]="applyForm" (submit)="saveStoreDetails()">
         <label for="store-name">Store Name *: </label>
         <input type="text" placeholder="enter store name" formControlName="storeName"
             style="margin: 10px 10px;" ng-required="true">
     <br>
     
-        <label for="store-name">Address *:</label> 
-        <input type="text" placeholder="enter store address" formControlName="storeAddress"
-            style="margin-right: 35px; margin-left: 35px; margin-top: 10px; margin-bottom: 10px;">
+        <label for="store-name">Street Name *:</label> 
+        <input type="text" placeholder="enter store address" formControlName="streetName"
+            style="margin: 10px 10px">
     <br>
     
-        <label for="store-phone"> Phone *:</label> 
-        <input type="text" placeholder="enter phone number" formControlName="storePhone"
+        <label for="city"> City *:</label> 
+        <input type="text" placeholder="enter phone number" formControlName="city"
             style="margin-right: 90px; margin-left: 47px; margin-top: 10px;
             margin-bottom: 10px;">
     <br>
+
+    <label for="state"> State:</label>
+         <input type="text" placeholder="enter email address" formControlName="state"
+            style="margin: 10px 10px 10px 61px;">
+    <br>
     
-        <label for="store-email"> Email:</label>
-         <input type="text" placeholder="enter email address" formControlName="storeEmail"
+        <label for="zipCode"> Zipcode:</label> 
+        <input type="text" placeholder="enter zipcode " formControlName="zipcode"
+            style="margin: 10px 10px 10px 45px;"><br>
+
+            <label for="email"> Email:</label>
+         <input type="text" placeholder="enter email address" formControlName="email"
             style="margin: 10px 10px 10px 61px;">
     <br>
 
-    
-        <label for="store-name"> Zipcode:</label> 
-        <input type="text" placeholder="enter zipcode " formControlName="storeZipcode"
-            style="margin: 10px 10px 10px 45px;"><br>
-
-        <label for="store-branch"> Branch:</label>
-         <input type="text" placeholder="enter branch " formControlName="storeBranch"
+        <label for="branch"> Branch:</label>
+         <input type="text" placeholder="enter branch " formControlName="branch"
             style="margin: 10px 10px 10px 50px;">   
+<br> 
+        <label for="storeHours">Store hours:</label>
+        <input type="=text" placeholder="enter store hours" formControlName="storeHours"
+            style="margin: 10px 10px 10px 25px;"><br>
+            
     <br><br>
     <button type="submit" class="primary">Save</button>
-    </form>
-</div>
+    </form> -->
+</div> 
