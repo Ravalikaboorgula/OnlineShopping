@@ -1,16 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { StoresManagerService } from '../store-manager.service';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, JsonPipe],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
-  providers: [StoresManagerService]
+    selector: 'app-home',
+    imports: [ ReactiveFormsModule, JsonPipe],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss',
+    providers: [StoresManagerService]
 })
 export class HomeComponent implements OnInit{
   service = inject(StoresManagerService);
@@ -79,7 +77,7 @@ export class HomeComponent implements OnInit{
 
   
   saveStoreDetails(){
-    
+
     this.appRunning = this.service.getAllStores().subscribe({
       next: (response: any)=> {
       this.dataSource = response;

@@ -1,4 +1,4 @@
-<!doctype html>
+export default `<!doctype html>
 <html lang="en" data-beasties-container="">
 <head><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <meta charset="utf-8">
@@ -13,3 +13,4 @@
   <app-root></app-root>
 <link rel="modulepreload" href="chunk-V3C5J6CC.js"><script src="polyfills-B6TNHZQ6.js" type="module"></script><script src="main-VRA3Y7K6.js" type="module"></script></body>
 </html>
+`;
