@@ -2,10 +2,11 @@ import { Component, OnInit, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { StoresManagerService } from '../store-manager.service';
+import { TableModule } from 'primeng/table';
 
 @Component({
     selector: 'app-home',
-    imports: [ ReactiveFormsModule, JsonPipe],
+    imports: [ ReactiveFormsModule, JsonPipe, TableModule],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
     providers: [StoresManagerService]
