@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Store } from './Store';
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +20,15 @@ http = inject(HttpClient);
     return this.http.get(url ,options);
   }
 
-  saveStore(store: any){
-    store.storeName = "Walmart";
+  saveStore(store: Store){
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     });
     let options = {
       headers: httpHeaders
     }
-    console.log('store valurs: ', store);
+    console.log('store values: ', store);
     let url = "http://localhost:8080/api/storesystem/savestore";
-    return this.http.post(url ,options, store);
+    return this.http.post(url , JSON.stringify(store), options);
   }
 }
