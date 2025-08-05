@@ -11,21 +11,20 @@
 </div>
 <br>
 <div>
-    <h1>Register your store here</h1>
-    <!--<pre>{{dataSource | json}}</pre>-->
-
-    <div class="card">
-    <p-table [value]="dataSource" [tableStyle]="{ 'min-width': '50rem' }">
+    <h1>Existing Stores</h1>
+    <button style="margin-left: 1300px" (click)="showDialog()">Add Store</button>
+    
+     <p-table [value]="dataSource" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
-                <th>Store Name</th>
-                <th>Street Name</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip Code</th>
-                <th>Email</th>
-                <th>Branch</th>
-                <th>Hours</th>
+                    <th><b>Store Name</b></th>
+                    <th><b>Street Name</b></th>
+                        <th><b>City</b></th>
+                            <th><b>State</b></th>
+                                <th><b>Zip Code</b></th>
+                                    <th><b>Email</b></th>
+                                        <th><b>Branch</b></th>
+                                            <th><b>Hours</b></th>
                 <th></th>
             </tr>
         </ng-template>
@@ -43,48 +42,67 @@
             </tr>
         </ng-template>
     </p-table>
+ 
 </div>
-
- <form [formGroup]="applyForm" (submit)="saveStoreDetails()">
-        <label for="store-name">Store Name *: </label>
-        <input type="text" placeholder="enter store name" formControlName="storeName"
-            style="margin: 10px 10px;" ng-required="true">
-    <br>
-    
-        <label for="store-name">Street Name *:</label> 
-        <input type="text" placeholder="enter store address" formControlName="streetName"
-            style="margin: 10px 10px">
-    <br>
-    
-        <label for="city"> City *:</label> 
-        <input type="text" placeholder="enter phone number" formControlName="city"
-            style="margin-right: 90px; margin-left: 47px; margin-top: 10px;
-            margin-bottom: 10px;">
-    <br>
-
-    <label for="state"> State:</label>
-         <input type="text" placeholder="enter email address" formControlName="state"
-            style="margin: 10px 10px 10px 61px;">
-    <br>
-    
-        <label for="zipCode"> Zipcode:</label> 
-        <input type="text" placeholder="enter zipcode " formControlName="zipcode"
-            style="margin: 10px 10px 10px 45px;"><br>
-
-            <label for="email"> Email:</label>
-         <input type="text" placeholder="enter email address" formControlName="email"
-            style="margin: 10px 10px 10px 61px;">
-    <br>
-
-        <label for="branch"> Branch:</label>
-         <input type="text" placeholder="enter branch " formControlName="branch"
-            style="margin: 10px 10px 10px 50px;">   
-<br> 
-        <label for="storeHours">Store hours:</label>
-        <input type="=text" placeholder="enter store hours" formControlName="storeHours"
-            style="margin: 10px 10px 10px 25px;"><br>
-            
-    <br><br>
-    <button type="submit" class="primary">Save</button>
-    </form>
-</div> 
+<div class="card flex justify-center">
+        <p-dialog header="Register Store" [modal]="true" [(visible)]="visible" [style]="{ width: '700px', height: '400px' }">
+                <form [formGroup]="applyForm" (submit)="saveStoreDetails()">
+                        <label for="store-name">Store *: </label>
+                        <input type="text" placeholder="enter store name" formControlName="storeName"
+                            style="margin: 10px 10px;" ng-required="true">
+                            <div *ngIf="applyForm.controls.storeName.invalid && formSubmitted" style="color:red">
+                                Please enter a store name
+                              </div>
+                    
+                        <label for="street-name">Street *:</label> 
+                        <input type="text" placeholder="enter store address" formControlName="streetName"
+                            style="margin: 10px 10px">
+                            <div *ngIf="applyForm.controls.streetName.invalid && formSubmitted" style="color:red">
+                                Please enter a street name
+                              </div>
+                    <br>
+                    
+                        <label for="city"> City *:</label> 
+                        <input type="text" placeholder="enter city" formControlName="city"
+                            style="margin: 10px 25px">
+                            <div *ngIf="applyForm.controls.city.invalid && formSubmitted" style="color:red">
+                                Please enter a city
+                              </div>
+                            
+                    <label for="state"> State *:</label>
+                         <input type="text" placeholder="enter state" formControlName="state"
+                            style="margin: 10px 10px">
+                            <div *ngIf="applyForm.controls.state.invalid && formSubmitted" style="color:red">
+                                Please enter a state
+                              </div>
+                    <br>
+                    
+                        <label for="zipCode"> Zipcode *:</label> 
+                        <input type="text" placeholder="enter zipcode " formControlName="zipcode"
+                            style="margin: 10px 1px">
+                            <div *ngIf="applyForm.controls.zipcode.invalid && formSubmitted" style="color:red">
+                                Please enter a zip code
+                              </div>
+                
+                            <label for="email"> Email:</label>
+                         <input type="text" placeholder="enter email address" formControlName="email"
+                            style="margin: 10px 10px">
+                            <br> 
+                        <label for="branch"> Branch:</label>
+                         <input type="text" placeholder="enter branch " formControlName="branch"
+                            style="margin: 10px 10px">   
+                
+                        <label for="storeHours">Store hours:</label>
+                        <input type="=text" placeholder="enter store hours" formControlName="storeHours"
+                            style="margin: 10px 10px"><br>
+                            
+                    <br><br>
+                    <button type="submit" class="primary">Save</button>
+                    
+            <!--<div class="flex justify-end gap-2">
+                <p-button label="Cancel" severity="secondary" (click)="visible = false" />
+                <p-button label="Save" (click)="visible = false" />
+            </div>-->
+        </form>
+        </p-dialog>
+    </div> 
