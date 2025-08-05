@@ -84,5 +84,9 @@ export class HomeComponent implements OnInit {
   showDialog(){
     this.visible = true;
   }
+  deleteStore(storeId:number){
+    //console.log('delete method called ', storeId);
+    this.service.deleteStore(storeId).subscribe();
+  }
 
 }

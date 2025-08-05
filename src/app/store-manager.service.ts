@@ -31,4 +31,15 @@ http = inject(HttpClient);
     let url = "http://localhost:8080/api/storesystem/savestore";
     return this.http.post(url , JSON.stringify(store), options);
   }
+  deleteStore(storeId: number){
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    let options = {
+      headers: httpHeaders
+    }
+    //console.log('delete values: ', storeId);
+    let url = "http://localhost:8080/api/storesystem/deleteStoreById?storeId="+storeId;
+    return this.http.delete<Store>(url , options);
+  }
 }
