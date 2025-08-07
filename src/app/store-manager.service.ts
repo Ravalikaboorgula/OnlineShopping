@@ -42,4 +42,17 @@ http = inject(HttpClient);
     let url = "http://localhost:8080/api/storesystem/deleteStoreById?storeId="+storeId;
     return this.http.delete<Store>(url , options);
   }
+  getStoreById(storeId: number){
+    console.log("hi edit" ,storeId);
+
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    let options = {
+      headers: httpHeaders
+    }
+    let url = "http://localhost:8080/api/storesystem/getStoreById?storeId="+storeId;
+    console.log("urlfegfgeggegggggge" ,url);
+    return this.http.get<Store>(url, options);
+  }
 }

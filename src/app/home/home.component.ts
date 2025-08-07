@@ -85,8 +85,24 @@ export class HomeComponent implements OnInit {
     this.visible = true;
   }
   deleteStore(storeId:number){
-    //console.log('delete method called ', storeId);
+    console.log('delete method called ', storeId);
     this.service.deleteStore(storeId).subscribe();
+  }
+  cancelEvent(){
+    console.log('cancel method called');
+    this.visible= false;
+  }
+  editStoredetails(storeId:number){
+    console.log('edit called ' ,storeId);
+    this.service.getStoreById(storeId).subscribe({
+      next: (response: any) => {
+        
+        console.log('datasource edit : ' ,response);
+      }
+    });
+    
+   
+    
   }
 
 }
