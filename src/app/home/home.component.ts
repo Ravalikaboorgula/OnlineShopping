@@ -21,11 +21,12 @@ export class HomeComponent implements OnInit {
   displayedColumns = ['storeName', 'streetName', 'city', 'state', 'zipCode', 'email', 'branch', 'storeHours'];
 
   applyForm = new FormGroup({
+    storeId: new FormControl(0),
     storeName: new FormControl('', Validators.required),
     streetName: new FormControl('', Validators.required),
     city: new FormControl('', Validators.required),
     state: new FormControl('', Validators.required),
-    zipcode: new FormControl('', Validators.required),
+    zipCode: new FormControl('', Validators.required),
     email: new FormControl(''),
     branch: new FormControl(''),
     storeHours: new FormControl('')
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
   dataSource: any;
   formSubmitted: boolean = false;
   visible: boolean = false;
+  mode!: string;
 
   constructor() {
 
@@ -62,15 +64,22 @@ export class HomeComponent implements OnInit {
   }
 
   saveStoreDetails() {
+    
     if(this.applyForm.invalid){
       this.formSubmitted = true;
       return;
     }
     let saveStore: Store;
     let saveData = this.applyForm.value;
-
-    saveStore = new Store(saveData.storeName!, saveData.streetName!, saveData.city!
-      , saveData.state!, saveData.zipcode!, saveData.email!, saveData.branch!, saveData.storeHours!);
+    if(this.mode == 'A'){
+    saveStore = new Store(0,saveData.storeName!, saveData.streetName!, saveData.city!
+      , saveData.state!, saveData.zipCode!, saveData.email!, saveData.branch!, saveData.storeHours!);
+    }
+    else{
+      saveStore = new Store(saveData.storeId!,saveData.storeName!, saveData.streetName!, saveData.city!
+        , saveData.state!, saveData.zipCode!, saveData.email!, saveData.branch!, saveData.storeHours!);
+  
+    }
     this.appRunning = this.service.saveStore(saveStore).subscribe({
 
       next: (response: any) => {
@@ -78,31 +87,57 @@ export class HomeComponent implements OnInit {
         this.visible = false;
       }
     });
-    this.getAllStore();
+    //this.reloadPage();
   }
 
   showDialog(){
     this.visible = true;
+    this.mode = 'A';
+    this.applyForm = new FormGroup({
+      storeId: new FormControl(0),
+      storeName: new FormControl('', Validators.required),
+      streetName: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      state: new FormControl('', Validators.required),
+      zipCode: new FormControl('', Validators.required),
+      email: new FormControl(''),
+      branch: new FormControl(''),
+      storeHours: new FormControl('')
+    });
   }
+
   deleteStore(storeId:number){
-    console.log('delete method called ', storeId);
-    this.service.deleteStore(storeId).subscribe();
+    this.service.deleteStore(storeId).subscribe(
+      () => {
+        console.log(`Item with ID ${storeId} deleted successfully.`);
+        // Optionally, refresh the list of items or update UI
+      },
+      (      error: any) => {
+        console.error('Error deleting item:', error);
+      },
+    );
+    //this.reloadPage();
   }
+
   cancelEvent(){
-    console.log('cancel method called');
     this.visible= false;
   }
+
   editStoredetails(storeId:number){
-    console.log('edit called ' ,storeId);
+    this.visible = true;
+    this.mode = 'M';
     this.service.getStoreById(storeId).subscribe({
       next: (response: any) => {
-        
-        console.log('datasource edit : ' ,response);
+        const data = response;
+        if(data){
+          this.applyForm.patchValue(data);
+        }
       }
-    });
-    
-   
-    
+    }); 
+  }
+
+  reloadPage(){
+    window.location.reload();
   }
 
 }

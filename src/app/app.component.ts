@@ -10,7 +10,7 @@ import { TableModule } from 'primeng/table';
 })
 export class AppComponent implements OnInit{
   ngOnInit(){
-    this.firstClick();
+    //this.firstClick();
   }
   title = 'Melissa Online Shopping Center';
   count = 1;

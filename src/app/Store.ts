@@ -1,4 +1,5 @@
     export class Store {
+    storeId : number;    
     storeName : string;
     streetName: string;
     city: string;
@@ -8,7 +9,8 @@
     branch: string;
     storeHours: string;
 
-    constructor(storeName : string,
+    constructor(storeId : number,
+        storeName : string,
         streetName: string,
         city: string,
         state: string,
@@ -16,6 +18,7 @@
         email: string,
         branch: string,
         storeHours: string){
+            this.storeId = storeId;
             this.storeName = storeName
             this.streetName = streetName;
             this.city = city;

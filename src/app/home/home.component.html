@@ -52,6 +52,7 @@
 <div class="card flex justify-center">
         <p-dialog header="Register Store" [modal]="true" [(visible)]="visible" [style]="{ width: '700px', height: '300px', background: 'lightgrey' }">
                 <form [formGroup]="applyForm" >
+                    <input type="hidden" formControlName="storeId">
                         <label for="store-name">Store *: </label>
                         <input type="text" placeholder="enter store name" formControlName="storeName"
                             style="margin: 10px 10px;" ng-required="true">
@@ -83,9 +84,9 @@
                     <br>
                     
                         <label for="zipCode"> Zipcode *:</label> 
-                        <input type="text" placeholder="enter zipcode " formControlName="zipcode"
+                        <input type="text" placeholder="enter zipcode " formControlName="zipCode"
                             style="margin: 10px 1px">
-                            <div *ngIf="applyForm.controls.zipcode.invalid && formSubmitted" style="color:red">
+                            <div *ngIf="applyForm.controls.zipCode.invalid && formSubmitted" style="color:red">
                                 Please enter a zip code
                               </div>
                 
