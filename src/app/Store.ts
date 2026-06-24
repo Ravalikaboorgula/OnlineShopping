@@ -6,6 +6,7 @@
     state: string;
     zipCode: string;
     email: string;
+    phoneNumber: number;
     branch: string;
     storeHours: string;
 
@@ -16,6 +17,7 @@
         state: string,
         zipCode: string,
         email: string,
+        phoneNumber: number,
         branch: string,
         storeHours: string){
             this.storeId = storeId;
@@ -25,6 +27,7 @@
             this.state = state;
             this.zipCode = zipCode;
             this.email = email;
+            this.phoneNumber =phoneNumber;
             this.branch = branch;
             this.storeHours = storeHours;
         }

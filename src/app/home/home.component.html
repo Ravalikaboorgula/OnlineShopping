@@ -23,6 +23,7 @@
                     <th><b>State</b></th>
                     <th><b>Zip Code</b></th>
                     <th><b>Email</b></th>
+                    <th><b>Phone Number</b></th>
                     <th><b>Branch</b></th>
                     <th><b>Hours</b></th>
                 <th></th>
@@ -36,6 +37,7 @@
                 <td>{{ product.state }}</td>
                 <td>{{ product.zipCode }}</td>
                 <td>{{ product.email }}</td>
+                <td>{{ product.phoneNumber}}</td>
                 <td>{{ product.branch }}</td>
                 <td>{{ product.storeHours }}</td>
              
@@ -93,7 +95,13 @@
                             <label for="email"> Email:</label>
                          <input type="text" placeholder="enter email address" formControlName="email"
                             style="margin: 10px 10px">
-                            <br> 
+                            <br>
+                            
+                            <label for="phoneNumber"> Phone Number:</label>
+                            <input type="text" placeholder="enter phoneNumber " formControlName="phoneNumber"
+                               style="margin: 10px 10px">  
+                               <br>  
+
                         <label for="branch"> Branch:</label>
                          <input type="text" placeholder="enter branch " formControlName="branch"
                             style="margin: 10px 10px">   

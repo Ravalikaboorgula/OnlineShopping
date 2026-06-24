@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   service = inject(StoresManagerService);
   appTitle: string = "";
   appRunning: any = [];
-  displayedColumns = ['storeName', 'streetName', 'city', 'state', 'zipCode', 'email', 'branch', 'storeHours'];
+  displayedColumns = ['storeName', 'streetName', 'city', 'state', 'zipCode', 'email', 'phoneNumber', 'branch', 'storeHours'];
 
   applyForm = new FormGroup({
     storeId: new FormControl(0),
@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     state: new FormControl('', Validators.required),
     zipCode: new FormControl('', Validators.required),
     email: new FormControl(''),
+    phoneNumber: new FormControl(0),
     branch: new FormControl(''),
     storeHours: new FormControl('')
   });
@@ -56,6 +57,7 @@ export class HomeComponent implements OnInit {
           state: item.state,
           zipCode: item.zipCode,
           email: item.email,
+          phoneNumber: item.phoneNumber,
           branch: item.branch,
           storeHours: item.storeHours
         }));
@@ -73,11 +75,11 @@ export class HomeComponent implements OnInit {
     let saveData = this.applyForm.value;
     if(this.mode == 'A'){
     saveStore = new Store(0,saveData.storeName!, saveData.streetName!, saveData.city!
-      , saveData.state!, saveData.zipCode!, saveData.email!, saveData.branch!, saveData.storeHours!);
+      , saveData.state!, saveData.zipCode!, saveData.email!, saveData.phoneNumber!, saveData.branch!, saveData.storeHours!);
     }
     else{
       saveStore = new Store(saveData.storeId!,saveData.storeName!, saveData.streetName!, saveData.city!
-        , saveData.state!, saveData.zipCode!, saveData.email!, saveData.branch!, saveData.storeHours!);
+        , saveData.state!, saveData.zipCode!, saveData.email!, saveData.phoneNumber!, saveData.branch!, saveData.storeHours!);
   
     }
     this.appRunning = this.service.saveStore(saveStore).subscribe({
@@ -101,6 +103,7 @@ export class HomeComponent implements OnInit {
       state: new FormControl('', Validators.required),
       zipCode: new FormControl('', Validators.required),
       email: new FormControl(''),
+      phoneNumber: new FormControl(0),
       branch: new FormControl(''),
       storeHours: new FormControl('')
     });
